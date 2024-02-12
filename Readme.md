@@ -6,9 +6,8 @@ The idea of this ASAP project is to create an application for the user to search
 The features of this project are as follows :-
 * Search Bar
 * Price Range
-* Sort prices from low to high and high to low
-* 
-*
-*
-*
-*
+* Sort prices from low to high and high to low.
+* Sort laptops on the basis on type of processors. 
+* Sort laptops on the basis on type of internal graphic card.
+* Sort laptops on the basis on type of Ram.
+* Sort laptops on the basis on type of storage capacities.
