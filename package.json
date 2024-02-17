@@ -4,7 +4,9 @@
   "description": "---\r ### IDEA OF THIS PROJECT :-\r The idea of this ASAP project is to create an application for the user to search for **Gaming Laptops** which are available in the market. There are certain criterias like range of prices , type of specifications and etc and etc.\r ### FEATURES OF THIS PROJECT :-\r The features of this project are as follows :-\r * Search Bar\r * Price Range\r * Sort prices from low to high and high to low.\r * Sort laptops on the basis on type of processors. \r * Sort laptops on the basis on type of internal graphic card.\r * Sort laptops on the basis on type of Ram.\r * Sort laptops on the basis on type of storage capacities.\r * Sort laptop on the basis of different companies.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "node server.js",
+    "dev": "nodemon server.js"
   },
   "author": "",
   "license": "ISC"
