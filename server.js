@@ -5,7 +5,6 @@ const port = process.env.PUBLIC_PORT || 3000;
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true
-
 };
 const dotenv = require('dotenv');
 dotenv.config();
@@ -14,8 +13,7 @@ app.use(express.json())
 
 mongoose.connect(process.env.MONGO_URI, options);
 
-const isConnected = () => {
-  
+const isConnected = () => {  
   return mongoose.connection.readyState === 1;
 }
 
