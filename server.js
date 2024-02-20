@@ -6,19 +6,21 @@ const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true
 };
+
 const dotenv = require('dotenv');
 dotenv.config();
 
-app.use(express.json())
+app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, options);
 
-const isConnected = () => {  
-  return mongoose.connection.readyState === 1;
-}
+const dbConnectStatus = mongoose.connection.readyState;
+
+const routes = require('./routes');
+app.use('/', routes);
 
 app.get('/', (req, res) => {
-  res.json({ dbConnectStatus: isConnected() });
+  res.json({ dbConnectStatus });
 });
 
 if (require.main === module) {
