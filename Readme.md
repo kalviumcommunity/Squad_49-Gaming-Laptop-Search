@@ -15,3 +15,6 @@ The features of this project are as follows :-
 
 ###### Devlopment Link :-
 https://gaming-laptop-search.onrender.com
+
+###### Front-End Devlopment Link :-
+https://splendorous-brigadeiros-204af8.netlify.app/
