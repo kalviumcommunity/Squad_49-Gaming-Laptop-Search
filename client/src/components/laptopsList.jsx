@@ -1,7 +1,10 @@
-import React from 'react'
-import laptopData from "./laptopData.json"
+import React, { useState ,useEffect} from 'react'
 
 function laptopsList() {
+  const [laptopData,setData] = useState([])
+  useEffect(()=>{
+    fetch('http://localhost:3000/laptops_api').then(i=>i.json()).then(j=>setData(j))
+  },[])
   console.log(laptopData)
   return (
     <div>
