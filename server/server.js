@@ -10,6 +10,17 @@ const options = {
 const dotenv = require('dotenv');
 dotenv.config();
 
+const cors = require('cors')
+app.use(cors())
+
+const laptopData = require('./models/laptops.js')
+
+app.get('/laptops_api',async(req,res)=>{
+  let value=await laptopData.find()
+  console.log(value)
+  res.send(value);
+})
+
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, options);
@@ -31,5 +42,4 @@ if (require.main === module) {
     console.log(`Server running on port: ${port}`);
   });
 }
-
 module.exports = app;
