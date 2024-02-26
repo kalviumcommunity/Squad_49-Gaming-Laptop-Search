@@ -1,4 +1,5 @@
 import React, { useState ,useEffect} from 'react'
+import './laptopList.css'
 
 function laptopsList() {
   const [laptopData,setData] = useState([])
@@ -7,14 +8,16 @@ function laptopsList() {
   },[])
   console.log(laptopData)
   return (
-    <div>
+    <div id='laptopList'>
       {laptopData.map((a,i)=>{
         return(
-          <div>
-            <h3>{a.modelName}</h3>
-            <p>{a.processor}, {a.ram} Ram, {a.storage} Storage, {a.internalGraphicCard} </p>
-            <h4>{a.price}</h4>
-            <br /><br />
+          <div id='boxes'>
+            <br /><br /><br />
+            <img src={a.ImageLink} id="laptopImg" />
+            <h2>{a.ModelName}</h2>
+            <h4>Specifications</h4>
+            <p>{a.Processor} <br /> {a.Ram} Ram <br /> {a.Storage} Storage <br /> {a.InternalGraphicCard} </p>
+            <h4>{a.Price}</h4>
           </div>
         )
       })}
