@@ -7,8 +7,9 @@ const laptopsSchema = new mongoose.Schema({
     ram: String,
     storage: String,
     internalGraphicCard: String,
-    price: String
+    price: String,
+    imageLink: String
 });
 
-const Laptop= mongoose.model('laptops', laptopsSchema);
+const Laptop= mongoose.model('laptop', laptopsSchema);
 module.exports = Laptop;

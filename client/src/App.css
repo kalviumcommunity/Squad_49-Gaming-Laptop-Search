@@ -46,4 +46,22 @@
 body{
   color: black;
   background-color: white;
+  font-family: cursive;
+  overflow-x: hidden;
+}
+header{
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  width: 100%;
+}
+#laptopIcon{
+  position: absolute;
+  left:300px;
+}
+header h1{
+  position: relative;
+  left: 100px;
 }

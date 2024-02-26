@@ -1,0 +1,14 @@
+body{
+    height: 3500px;
+}
+#boxes{
+    box-shadow: 2px 2px 5px 0px;
+    border-radius: 5px;
+}
+#laptopList{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    gap: 80px;
+    position: relative;
+    left: -80px;
+}
