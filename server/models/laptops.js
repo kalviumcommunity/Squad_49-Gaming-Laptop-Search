@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 
 const laptopsSchema = new mongoose.Schema({
-    sno: Number,
-    modelName: String,
-    processor: String,
-    ram: String,
-    storage: String,
-    internalGraphicCard: String,
-    price: String,
-    imageLink: String
+    ModelName: String,
+    Processor: String,
+    Ram: String,
+    Storage: String,
+    InternalGraphicCard: String,                
+    Price: String,
+    ImageLink: String
 });
 
 const Laptop= mongoose.model('laptop', laptopsSchema);
 module.exports = Laptop;
+

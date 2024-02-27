@@ -1,5 +1,5 @@
 body{
-    height: 3500px;
+    height:6000px;
 }
 #boxes{
     box-shadow: 2px 2px 5px 0px;
@@ -9,6 +9,12 @@ body{
     display: grid;
     grid-template-columns: repeat(3,auto);
     gap: 80px;
-    position: relative;
-    left: -80px;
+    position: absolute;
+    left: 25px;
+    top: 260px;
+}
+#adder{
+    position: absolute;
+    top: 170px;
+    right: 40%;
 }

@@ -1,5 +1,6 @@
 import React, { useState ,useEffect} from 'react'
 import './laptopList.css'
+import { Link } from 'react-router-dom'
 
 function laptopsList() {
   const [laptopData,setData] = useState([])
@@ -8,7 +9,10 @@ function laptopsList() {
   },[])
   console.log(laptopData)
   return (
-    <div id='laptopList'>
+    <div>
+      <Link to='/addLaptop'><button id='adder'>Add a Gaming Laptop</button></Link>
+      <br /><br />
+      <div id='laptopList'>
       {laptopData.map((a,i)=>{
         return(
           <div id='boxes'>
@@ -17,11 +21,13 @@ function laptopsList() {
             <h2>{a.ModelName}</h2>
             <h4>Specifications</h4>
             <p>{a.Processor} <br /> {a.Ram} Ram <br /> {a.Storage} Storage <br /> {a.InternalGraphicCard} </p>
-            <h4>{a.Price}</h4>
+            <h4>Price - {a.Price}</h4>
           </div>
         )
       })}
     </div>
+    </div>
+    
   )
 }
 
