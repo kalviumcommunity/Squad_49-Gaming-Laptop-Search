@@ -1,0 +1,14 @@
+.App{
+   position: relative;
+   top: -2300px;
+}
+form{
+    font-size: 20px;
+}
+input{
+    height: 30px;
+    width: 350px;
+}
+label{
+    font-size: 30px;
+}
