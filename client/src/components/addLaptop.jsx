@@ -9,17 +9,18 @@ export default function AddLaptop() {
   const [storage, setStorage] = useState('');
   const [internalGraphicCard, setInternalGraphicCard] = useState('');
   const [price, setPrice] = useState('');
+  const [imageLink,setImageLink] = useState('')
 
   const [buttonStatus,setButtonStatus] = useState(false)
 
   const addData = (e) => {
-    if(!modelName || !processor || !ram || !storage || !internalGraphicCard || !price){
+    if(!modelName || !processor || !ram || !storage || !internalGraphicCard || !price || !imageLink){
       alert('Please fill all the data required.')
     } else{
       e.preventDefault()
     setButtonStatus(true)
     console.log([modelName,processor,ram,storage,internalGraphicCard,price])
-    axios.post('http://localhost:3000/add_laptop',{ModelName:modelName,Processor:processor,Ram:ram,Storage:storage,InternalGraphicCard:internalGraphicCard,Price: "₹ "+price}).then(i=>console.log(i))
+    axios.post('http://localhost:3000/add_laptop',{ModelName:modelName,Processor:processor,Ram:ram,Storage:storage,InternalGraphicCard:internalGraphicCard,Price: "₹ "+price,ImageLink:imageLink}).then(i=>console.log(i))
     setTimeout(()=>{
       window.location.href="/"
       setButtonStatus(false)
@@ -37,6 +38,7 @@ export default function AddLaptop() {
         <label>Storage :</label><br /><input type="text" name='storage' value={storage} onChange={(e) => setStorage(e.target.value)} /><br /><br /><br />
         <label>Internal Graphic Card :</label><br /><input type="text" name='internalGraphicCard' value={internalGraphicCard} onChange={(e) => setInternalGraphicCard(e.target.value)} /><br /><br /><br />
         <label>Price (₹) :</label><br /><input type="number" name='price' value={price} onChange={(e) => setPrice(e.target.value)} /><br /><br /><br />
+        <label>Image Link :</label><br /><input type='url' name='imageLink' value={imageLink} onChange={(e) => setImageLink(e.target.value)} /><br /><br /><br />
         <button type="button" onClick={addData} disabled={buttonStatus}>Add Gaming Laptop</button>
       </form>
     </div>
