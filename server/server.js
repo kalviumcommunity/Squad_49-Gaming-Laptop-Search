@@ -24,10 +24,37 @@ app.get('/laptops_api',async(req,res)=>{
 
 app.post('/add_laptop', async (req, res) => {
   let value = req.body;
-  console.log(value);
+  // console.log(value);
   let data = await laptopData.create(value);
   res.status(200).json({ message: 'Laptop added successfully', data });
 });
+
+app.delete('/laptops_api/:id',(req,res)=>{
+  const id = req.params.id
+  laptopData.findByIdAndDelete({_id : id}).then(i=>res.json(i))
+})
+
+
+app.get('/update/:id',(req,res)=>{
+  const id = req.params.id
+  laptopData.findById(id).then(i=>res.json(i)).catch(e=>console.log(e))
+})
+
+app.put('/update/:id', (req, res) => {
+  const id = req.params.id;
+  const updateData = {
+    ModelName: req.body.ModelName,
+    Processor: req.body.Processor,
+    Ram: req.body.Ram,
+    Storage: req.body.Storage,
+    InternalGraphicCard: req.body.InternalGraphicCard,
+    Price: req.body.Price,
+    ImageLink: req.body.ImageLink,
+  };
+  laptopData.findByIdAndUpdate({ _id: id},updateData)
+    .then(()=>res.json({message:'Laptop updated successfully'}))
+});
+
 
 app.use(express.json());
 

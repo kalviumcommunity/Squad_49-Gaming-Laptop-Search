@@ -18,3 +18,11 @@ body{
     top: 170px;
     right: 40%;
 }
+#update{
+    color: black;
+    background-color: green;
+}
+#delete{
+    color:black;
+    background-color: red;
+}
