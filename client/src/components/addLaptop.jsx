@@ -1,33 +1,46 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import './addLaptop.css';
+import React, { useState } from "react";
+import axios from "axios";
+import "./addLaptop.css";
+import Joi from "joi";
 
 export default function AddLaptop() {
-  const [modelName, setModelName] = useState('');
-  const [processor, setProcessor] = useState('');
-  const [ram, setRam] = useState('');
-  const [storage, setStorage] = useState('');
-  const [internalGraphicCard, setInternalGraphicCard] = useState('');
-  const [price, setPrice] = useState('');
-  const [imageLink,setImageLink] = useState('')
+  const [modelName, setModelName] = useState("");
+  const [processor, setProcessor] = useState("");
+  const [ram, setRam] = useState("");
+  const [storage, setStorage] = useState("");
+  const [internalGraphicCard, setInternalGraphicCard] = useState("");
+  const [price, setPrice] = useState("");
+  const [imageLink, setImageLink] = useState("");
 
-  const [buttonStatus,setButtonStatus] = useState(false)
+  const [buttonStatus, setButtonStatus] = useState(false);
+
+  const schema = Joi.object({
+    modelName: Joi.string().required(),
+    processor: Joi.string().required(),
+    ram: Joi.string().required(),
+    storage: Joi.string().required(),
+    internalGraphicCard: Joi.string().required(),
+    price: Joi.number().required(),
+    imageLink: Joi.string().uri().required(),
+  });
 
   const addData = (e) => {
-    if(!modelName || !processor || !ram || !storage || !internalGraphicCard || !price || !imageLink){
-      alert('Please fill all the data required.')
-    } else{
-      e.preventDefault()
-    setButtonStatus(true)
-    console.log([modelName,processor,ram,storage,internalGraphicCard,price])
-    axios.post('http://localhost:3000/add_laptop',{ModelName:modelName,Processor:processor,Ram:ram,Storage:storage,InternalGraphicCard:internalGraphicCard,Price: "₹ "+price,ImageLink:imageLink}).then(i=>console.log(i))
-    setTimeout(()=>{
-      window.location.href="/"
-      setButtonStatus(false)
-      alert('Data is Added Sucessfully')
-    },2000)
+    e.preventDefault();
+    const data = {modelName,processor,ram,storage,internalGraphicCard,price,imageLink}
+    const { error } = schema.validate(data)
+    if (error) {
+      alert(`Please fix the following errors:\n\n ${error.details.map((x) => x.message).join("\n")}`);
+    } else {
+      setButtonStatus(true);
+      axios.post("http://localhost:3000/add_laptop",{ModelName: modelName,Processor: processor,Ram: ram,Storage: storage,InternalGraphicCard: internalGraphicCard,Price: "₹ " + price,ImageLink: imageLink}).then((i) => console.log(i));
+      setTimeout(() => {
+        window.location.href = "/";
+        setButtonStatus(false);
+        alert("Data is Added Successfully");
+      }, 2000);
     }
   };
+
   return (
     <div className="App">
       <h1>Enter all Gaming Laptop details</h1>
