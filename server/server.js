@@ -62,11 +62,14 @@ mongoose.connect(process.env.MONGO_URI, options);
 
 const dbConnectStatus = () => mongoose.connection.readyState===1;
 
+
 const routes = require('./routes');
 app.use('/', routes);
 
 app.get('/', (req, res) => {
+
   res.json({ "dbConnectStatus":dbConnectStatus() });
+
 });
 
 if (require.main === module) {
