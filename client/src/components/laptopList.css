@@ -1,17 +1,20 @@
-body{
+/* body{
     height:6000px;
-}
+} */
 #boxes{
     box-shadow: 2px 2px 5px 0px;
     border-radius: 5px;
 }
 #laptopList{
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(3,auto);
     gap: 80px;
     position: absolute;
-    left: 25px;
+    left: 0;
+    gap: 50px;
     top: 260px;
+    background-color: white;
 }
 #adder{
     position: absolute;

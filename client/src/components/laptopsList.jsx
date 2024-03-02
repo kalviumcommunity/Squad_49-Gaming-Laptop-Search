@@ -32,6 +32,7 @@ function laptopsList() {
           </div>
         )
       })}
+      
     </div>
     </div>
     
