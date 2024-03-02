@@ -72,6 +72,26 @@ app.get('/', (req, res) => {
 
 });
 
+const logins = require('./models/login.js')
+
+app.get("/login_data",async(req,res)=>{
+  let value = await logins.find()
+  res.send(value);
+})
+
+const cookieParser = require('cookie-parser')
+app.use(cookieParser()) 
+
+app.post('/logins', async (req, res) => {
+    let val = req.body;
+    let loginData = await logins.create({
+      Email:val.Email,
+      Password:val.Password
+    })
+    res.json({message:"Add Login Credinals"})
+});
+
+
 if (require.main === module) {
   app.listen(port, () => {
     console.log(`Server running on port: ${port}`);

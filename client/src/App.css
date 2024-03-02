@@ -65,3 +65,10 @@ header h1{
   position: relative;
   left: 100px;
 }
+#login{
+  background-color: white;
+  color: black;
+  position: absolute;
+  right: 50px;
+  top: 40px;
+}
