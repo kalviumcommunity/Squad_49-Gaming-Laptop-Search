@@ -88,7 +88,6 @@ app.post('/logins', async (req, res) => {
       Email: val.Email,
       Password: val.Password
     });
-    console.log("fjebvhkekvlrvnkj")
     const token = jwt.sign({ userId: loginData._id, email: loginData.Email }, key,{expiresIn:"24h"});
     res.cookie('token', token);
     res.json({ message: "Add Login Credentials",token });
