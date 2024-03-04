@@ -72,3 +72,11 @@ header h1{
   right: 50px;
   top: 40px;
 }
+#logout{
+  background-color: white;
+  color: black;
+  position: absolute;
+  right: 50px;
+  top: 40px;
+  display: none;
+}

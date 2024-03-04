@@ -82,13 +82,20 @@ app.get("/login_data",async(req,res)=>{
 const cookieParser = require('cookie-parser')
 app.use(cookieParser()) 
 
+const jwt = require('jsonwebtoken')
+const key = process.env.SECRET_KEY
+
 app.post('/logins', async (req, res) => {
     let val = req.body;
     let loginData = await logins.create({
-      Email:val.Email,
-      Password:val.Password
-    })
-    res.json({message:"Add Login Credinals"})
+      Email: val.Email,
+      Password: val.Password
+    });
+    console.log("fjebvhkekvlrvnkj")
+    const token = jwt.sign({ userId: loginData._id, email: loginData.Email }, key,{expiresIn:"24h"});
+    res.cookie('token', token);
+    res.json({ message: "Add Login Credentials",token });
+    console.log(token)
 });
 
 
