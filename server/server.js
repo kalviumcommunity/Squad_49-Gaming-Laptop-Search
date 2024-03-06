@@ -18,7 +18,9 @@ app.use(cors())
 const laptopData = require('./models/laptops.js')
 
 app.get('/laptops_api',async(req,res)=>{
-  let value = await laptopData.find()
+  const {Username}= req.query
+  const users = Username ? {Username}:{}
+  let value = await laptopData.find(users)
   res.send(value);
 })
 
@@ -88,16 +90,20 @@ const key = process.env.SECRET_KEY
 app.post('/logins', async (req, res) => {
     let val = req.body;
     let loginData = await logins.create({
-      Email: val.Email,
+      Username: val.Username,
       Password: val.Password
     });
-    console.log("fjebvhkekvlrvnkj")
-    const token = jwt.sign({ userId: loginData._id, email: loginData.Email }, key,{expiresIn:"24h"});
+    const token = jwt.sign({ userId: loginData._id, email: loginData.Username }, key,{expiresIn:"24h"});
     res.cookie('token', token);
     res.json({ message: "Add Login Credentials",token });
-    console.log(token)
 });
 
+
+app.get('/login_data/username',async(req,res)=>{
+  const username = await logins.distinct('Username')
+  const users = username.filter(Username=>Username)
+  res.json({Usernames: users})
+})
 
 if (require.main === module) {
   app.listen(port, () => {

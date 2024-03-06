@@ -76,7 +76,7 @@ header h1{
   background-color: white;
   color: black;
   position: absolute;
-  right: 50px;
+  right: 150px;
   top: 40px;
-  display: none;
+  /* display: none; */
 }

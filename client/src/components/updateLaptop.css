@@ -1,5 +1,6 @@
 .UpdateLaptop{
-    position: absolute;
+    position: relative;
+    width: 100%;
     top: 130px;
-    right: 350px;
+    height: 1300px;
 }

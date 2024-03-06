@@ -32,7 +32,7 @@ export default function AddLaptop() {
       alert(`Please fix the following errors:\n\n ${error.details.map((x) => x.message).join("\n")}`);
     } else {
       setButtonStatus(true);
-      axios.post("http://localhost:3000/add_laptop",{ModelName: modelName,Processor: processor,Ram: ram,Storage: storage,InternalGraphicCard: internalGraphicCard,Price: "₹ " + price,ImageLink: imageLink}).then((i) => console.log(i));
+      axios.post("http://localhost:3000/add_laptop",{Username:localStorage.getItem("Username"),ModelName: modelName,Processor: processor,Ram: ram,Storage: storage,InternalGraphicCard: internalGraphicCard,Price: "₹ " + price,ImageLink: imageLink}).then((i) => console.log(i));
       setTimeout(() => {
         window.location.href = "/";
         setButtonStatus(false);

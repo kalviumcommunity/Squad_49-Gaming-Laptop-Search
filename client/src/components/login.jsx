@@ -7,6 +7,7 @@
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [buttonStatus,setButtonStatus] = useState(false)
+    localStorage.setItem("loggedin",false)
 
     const viewPassword = () => {
       const x = document.getElementById('x');
@@ -20,10 +21,11 @@
     const loginFunc = async (e) => {
       e.preventDefault();
       setButtonStatus(true) 
-        const response = await axios.post("http://localhost:3000/logins", { Email: username, Password: password });
+        const response = await axios.post("http://localhost:3000/logins", { Username: username, Password: password });
         console.log(response.data);
         Cookies.set('Username',username)
         localStorage.setItem("token",response.data.token)
+        localStorage.setItem("Username",username)
         Cookies.set("token",response.data.token)
         alert("You have logged in..")
         window.location.href="/"
