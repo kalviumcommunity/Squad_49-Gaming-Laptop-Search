@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const laptopsSchema = new mongoose.Schema({
+    Username:String,
     ModelName: String,
     Processor: String,
     Ram: String,

@@ -29,3 +29,22 @@
     color:black;
     background-color: red;
 }
+#creatorMenu{
+    position: relative;
+    top: -140px;
+    right: 700px;
+    height: 30px;
+    width: 150px;
+    background-color: black;
+}
+#label{
+    color: black;
+    position: relative;
+    top: -180px;
+    right: 430px;
+    font-size: 30px;
+}
+#noData{
+    position: relative;
+    left: 150px;
+}

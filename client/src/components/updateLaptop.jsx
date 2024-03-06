@@ -46,6 +46,7 @@ function UpdateLaptop() {
     };
     axios.put(`http://localhost:3000/update/${id}`, updatedData)
       .then((i) =>console.log(i.data))
+    window.location.href="/"
   };
   
   return (
@@ -61,6 +62,7 @@ function UpdateLaptop() {
         <label>Image Link :</label><br /><input type='url' name='ImageLink' value={imageLink} onChange={(e) => setImageLink(e.target.value)} /><br /><br /><br />
         <button onClick={update} disabled={buttonStatus}>Update Gaming Laptop</button>
       </form>
+      <br />
     </div>
   );
 }
