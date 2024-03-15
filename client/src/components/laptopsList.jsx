@@ -20,7 +20,12 @@ function LaptopsList() {
   }, [selUser]);
   useEffect(() => {
     fetch("http://localhost:3000/login_data/username").then((i) => i.json()).then((j) => setUsernameData(j.Usernames))
-  }, []);
+  }, [])
+  const deleteData = (id)=>{
+    fetch('http://localhost:3000/laptops_api/'+id,{
+      method:'DELETE'
+    }).then(window.location.href="/")
+  }
   return (
     <div>
       <label id="label">View Gaming Laptops added by</label>
