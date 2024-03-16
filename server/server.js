@@ -6,11 +6,17 @@ const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 const port = process.env.PUBLIC_PORT || 3000;
-const options = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-};
+// const options = {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// };
 
+
+app.use(express.json());
+
+mongoose.connect(process.env.MONGO_URI);
+
+const dbConnectStatus = () => mongoose.connection.readyState===1;
 
 const cors = require('cors')
 app.use(cors())
@@ -57,12 +63,6 @@ app.put('/update/:id', (req, res) => {
     .then(()=>res.json({message:'Laptop updated successfully'}))
 });
 
-
-app.use(express.json());
-
-mongoose.connect(process.env.MONGO_URI, options);
-
-const dbConnectStatus = () => mongoose.connection.readyState===1;
 
 
 const routes = require('./routes');
