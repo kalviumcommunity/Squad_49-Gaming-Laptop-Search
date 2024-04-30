@@ -68,10 +68,8 @@ app.put('/update/:id', (req, res) => {
 const routes = require('./routes');
 app.use('/', routes);
 
-app.get('/', (req, res) => {
-
+app.get('/', (req, res) => {  
   res.json({ "dbConnectStatus":dbConnectStatus() });
-
 });
 
 const logins = require('./models/login.js')
