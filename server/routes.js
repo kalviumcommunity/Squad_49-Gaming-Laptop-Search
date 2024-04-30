@@ -14,7 +14,7 @@ router.delete('/delete', async (req, res) => {
 });
 
 router.get('/get', async (req, res) => {
-    res.json({ Message: 'Data is fetched.' });
+    res.json({ Message: 'Data is fetched...' });
 });
 
 module.exports = router;
