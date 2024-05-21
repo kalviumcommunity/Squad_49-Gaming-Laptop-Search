@@ -6,15 +6,15 @@ const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 const port = process.env.PUBLIC_PORT || 3000;
-// const options = {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// };
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}
 
 
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI,options);
 
 const dbConnectStatus = () => mongoose.connection.readyState===1;
 
@@ -41,6 +41,7 @@ app.delete('/laptops_api/:id',(req,res)=>{
   const id = req.params.id
   laptopData.findByIdAndDelete({_id : id}).then(i=>res.json(i))
 })
+
 
 
 app.get('/update/:id',(req,res)=>{
