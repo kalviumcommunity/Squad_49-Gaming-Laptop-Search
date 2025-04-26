@@ -4,7 +4,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const bodyParser = require('body-parser');
+
 app.use(bodyParser.json());
+
 const port = process.env.PUBLIC_PORT || 3000;
 const options = {
   useNewUrlParser: true,
